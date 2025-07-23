@@ -3,6 +3,8 @@ FROM openjdk:17-jdk-alpine
 
 # Set working directory inside container
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
 # Copy the JAR file into the container
 COPY ./target/storypass-0.0.1-SNAPSHOT.jar app.jar
